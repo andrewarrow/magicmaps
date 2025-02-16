@@ -23,13 +23,17 @@ func (b *Map) GetFloat(name string) float64 {
 	v, _ := b.Item[name].(float64)
 	return v
 }
-func (b *Map) GetFloatAsInt(name string) int64 {
+func (b *Map) GetFloatAsInt(name string) int {
+	v, _ := b.Item[name].(float64)
+	return int(v)
+}
+func (b *Map) GetFloatAsInt64(name string) int64 {
 	v, _ := b.Item[name].(float64)
 	return int64(v)
 }
-func (b *Map) GetInt(name string) int64 {
+func (b *Map) GetInt(name string) int {
 	v, _ := b.Item[name].(int64)
-	return v
+	return int(v)
 }
 func (b *Map) GetString(name string) string {
 	v, _ := b.Item[name].(string)

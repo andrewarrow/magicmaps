@@ -1,15 +1,19 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"magicmaps/magic"
 	"testing"
 )
 
-func TestMaps(t *testing.T) {
-	m := map[string]any{}
-	m["foo"] = 123
-	mm := magic.NewMap(m)
+var sampleJson = []byte(`{"foo": 123}`)
 
-	fmt.Println(mm)
+func TestMaps(t *testing.T) {
+	var m map[string]any
+	json.Unmarshal(sampleJson, &m)
+	mm := magic.NewMap(m)
+	val := mm.GetFloatAsInt("foo")
+
+	fmt.Println(val)
 }
