@@ -1,10 +1,15 @@
 package main
 
 import (
+	"fmt"
 	"magicmaps/magic"
 	"testing"
 )
 
 func TestMaps(t *testing.T) {
-	magic.Foo()
+	m := map[string]any{}
+	m["foo"] = 123
+	mm := magic.NewMap(m)
+
+	fmt.Println(mm)
 }
